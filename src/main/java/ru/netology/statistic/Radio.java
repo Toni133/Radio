@@ -4,6 +4,8 @@ public class Radio {
     private int currentStation;
     private int currentVolume;
 
+
+
     public int getCurrentStation() {
         return currentStation;
 
@@ -23,15 +25,44 @@ public class Radio {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int CurrentVolume) {
-        if (currentVolume < 0){
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < 0) {
             return;
         }
-        if (currentVolume > 100){
+        if (currentVolume > 100) {
             return;
         }
 
         this.currentVolume = currentVolume;
+    }
+    public void switching() {
+        if (currentStation != 9) {
+            currentStation++;
+        } else {
+            currentStation = 0;
+        }
+
+    }
+    public void switchingBack(){
+        if ( currentStation !=0){
+            currentStation--;
+        }else {
+            currentStation = 9;
+        }
+    }
+    public void increaseTheVolume(){
+        if (currentVolume !=100){
+            currentVolume++;
+        }else {
+            currentVolume = 0;
+        }
+    }
+    public void volumeReduction(){
+        if (currentVolume !=0){
+            currentVolume--;
+        }else {
+            currentVolume = 100;
+        }
     }
 }
 

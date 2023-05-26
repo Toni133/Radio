@@ -5,6 +5,17 @@ import org.junit.jupiter.api.Test;
 
 public class RadioTest {
 
+
+    @Test
+    public void testDesigner() {
+        Radio radio = new Radio(20);
+        radio.setCurrentStation(15);
+
+        int expected = 15;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
     @Test
     public void boundaryMinimumValue() {
         Radio radio = new Radio();
@@ -13,7 +24,6 @@ public class RadioTest {
         int expected = 1;
         int actual = radio.getCurrentStation();
         Assertions.assertEquals(expected, actual);
-
     }
 
     @Test
@@ -29,7 +39,7 @@ public class RadioTest {
     @Test
     public void nonExistentStationNumber() {
         Radio radio = new Radio();
-        radio.setCurrentStation(15);
+        radio.setCurrentStation(30);
 
         int expected = 0;
         int actual = radio.getCurrentStation();
@@ -51,7 +61,7 @@ public class RadioTest {
     @Test
     public void maximumLimitValue() {
         Radio radio = new Radio();
-        radio.setCurrentStation(10);
+        radio.setCurrentStation(20);
 
         int expected = 0;
         int actual = radio.getCurrentStation();
@@ -164,7 +174,6 @@ public class RadioTest {
 
     @Test
     public void zeroVolumeValue() {
-
         Radio radio = new Radio();
         radio.setCurrentVolume(0);
 
@@ -309,4 +318,5 @@ public class RadioTest {
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
+
 }
